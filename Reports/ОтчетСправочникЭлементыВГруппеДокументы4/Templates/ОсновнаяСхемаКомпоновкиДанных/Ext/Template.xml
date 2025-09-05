@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОКВЭД</dataPath>
+			<field>ОКВЭД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация1</dataPath>
+			<field>Организация1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>START_DATE</dataPath>
+			<field>START_DATE</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка2</dataPath>
+			<field>Ссылка2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка2</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Код</dataPath>
+			<field>Код</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Родитель</dataPath>
+			<field>Родитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолноеНаименование</dataPath>
+			<field>ПолноеНаименование</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наименование</dataPath>
+			<field>Наименование</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЭтоГруппа</dataPath>
+			<field>ЭтоГруппа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОрганизацияORGANIZATION_ID</dataPath>
+			<field>ОрганизацияORGANIZATION_ID</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>OKWED_STR</dataPath>
+			<field>OKWED_STR</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СсылкаДок</dataPath>
+			<field>СсылкаДок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка док</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФондНачислЗарабПлаты</dataPath>
+			<field>ФондНачислЗарабПлаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+   УчетДок.СсылкаДок, 
+   УчетДок.Организация,
+   УчетДок.OKWED_STR,
+   УчетПоказателейТаблЧисленностьЗаработнаяПлата.Количество,
+   УчетПоказателейТаблЧисленностьЗаработнаяПлата.ФондНачислЗарабПлаты   
+ИЗ 
+(ВЫБРАТЬ
+    Учет.Ссылка Как СсылкаДок,
+   	СправочникОКВЭД.Ссылка КАК Ссылка,
+	СправочникОКВЭД.Родитель КАК Родитель,
+	СправочникОКВЭД.ЭтоГруппа КАК ЭтоГруппа,
+	СправочникОКВЭД.Код КАК Код,
+	СправочникОКВЭД.Наименование КАК Наименование,
+	СправочникОКВЭД.ПолноеНаименование КАК ПолноеНаименование,
+	Учет.Номер,
+	Учет.Организация.ORGANIZATION_ID,
+	СправочникОКВЭД.OKWED_STR,
+	Учет.Организация
+ИЗ
+	Справочник.СправочникОКВЭД КАК СправочникОКВЭД
+ЛЕВОЕ СОЕДИНЕНИЕ
+    (
+ВЫБРАТЬ
+	УчетПоказателей.Ссылка КАК Ссылка,
+	УчетПоказателей.Номер КАК Номер,
+	УчетПоказателей.Дата КАК Дата,
+	УчетПоказателей.Организация КАК Организация,
+	РегистрСведений_ОКВЭД.Организация КАК Организация1,
+	РегистрСведений_ОКВЭД.START_DATE КАК START_DATE,
+	РегистрСведений_ОКВЭД.ОКВЭД КАК ОКВЭД, 
+	РегистрСведений_ОКВЭД.ОКВЭД.Ссылка КАК Ссылка2
+ИЗ
+	Документ.УчетПоказателей КАК УчетПоказателей
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ( ВЫБРАТЬ  
+    	РегистрСведений_ОКВЭД1.Организация КАК Организация,
+		РегистрСведений_ОКВЭД1.START_DATE КАК START_DATE,
+		РегистрСведений_ОКВЭД1.ОКВЭД КАК ОКВЭД
+	ИЗ
+		РегистрСведений.РегистрСведений_ОКВЭД КАК РегистрСведений_ОКВЭД1
+	ГДЕ
+		1 НЕ В (ВЫБРАТЬ 1 
+				ИЗ 
+					РегистрСведений.РегистрСведений_ОКВЭД КАК РегистрСведений_ОКВЭД2
+				ГДЕ
+					РегистрСведений_ОКВЭД2.Организация = РегистрСведений_ОКВЭД1.Организация
+				И
+					РегистрСведений_ОКВЭД2.START_DATE &gt; РегистрСведений_ОКВЭД1.START_DATE)
+	И РегистрСведений_ОКВЭД1.START_DATE &lt;= &amp;START_DATE) КАК РегистрСведений_ОКВЭД 
+ПО УчетПоказателей.Организация = РегистрСведений_ОКВЭД.Организация
+) КАК Учет
+ПО  СправочникОКВЭД.Ссылка = Учет.ОКВЭД
+ГДЕ  
+	СправочникОКВЭД.Ссылка В ИЕРАРХИИ(&amp;ЭтоГруппа)
+И   СправочникОКВЭД.ЭтоГруппа = Истина 
+И
+  Учет.Номер &lt;&gt; "") КАК УчетДок	 
+ЛЕВОЕ СОЕДИНЕНИЕ
+  Документ.УчетПоказателей.ТаблЧисленностьЗаработнаяПлата КАК УчетПоказателейТаблЧисленностьЗаработнаяПлата
+ПО  УчетДок.СсылкаДок  = УчетПоказателейТаблЧисленностьЗаработнаяПлата.Ссылка 
+ГДЕ
+УчетПоказателейТаблЧисленностьЗаработнаяПлата.Показатель.НомерСтроки = "01"</query>
+	</dataSet>
+	<parameter>
+		<name>START_DATE</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>START DATE</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ЭтоГруппа</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Это группа</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СправочникОКВЭД</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СсылкаДок</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФондНачислЗарабПлаты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>OKWED_STR</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

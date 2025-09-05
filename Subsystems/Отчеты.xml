@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.19">
+	<Subsystem uuid="495738af-bba1-4f3a-9380-75b4a480c170">
+		<Properties>
+			<Name>Отчеты</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчеты</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<IncludeInCommandInterface>true</IncludeInCommandInterface>
+			<UseOneCommand>false</UseOneCommand>
+			<Explanation/>
+			<Picture>
+				<xr:Ref>CommonPicture.Отчеты</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Content>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ТестОтчет</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетРегистрНакопления</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетРегистрНакопления1</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетОКВЭД</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетСправочникГруппа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ОбработатьОтчет</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетВрем</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетВГруппе</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетСправочникЭлементыВГруппе</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.СписокДокументовВгруппе</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетСправочникЭлементыВГруппеДокументы2</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетУчетДокТаблицы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ОбработатьОтчетВыбор</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ОбработатьОтчетОКВЕД_Стр5</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетСправочникЭлементыВГруппеДокументы3</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ТестОтчет2</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ТестОтчет3</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетСправочникЭлементыВГруппеДокументы4</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ТестОтчет5</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ТестОтчет6</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ТестОтчет7</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ОбработатьОтчетОКВЕД_Стр_6_8_15</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ТестОтчет8</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ОбработатьОтчетОКВЕД_Стр_6_8_15__2</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.СравнитьСправочникОрганизаций</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.КонсольЗапросов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ОтчетЭлементПоОКВЭД</xr:Item>
+			</Content>
+		</Properties>
+		<ChildObjects>
+			<Subsystem>ДляОтладки</Subsystem>
+		</ChildObjects>
+	</Subsystem>
+</MetaDataObject>
